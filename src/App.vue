@@ -1,60 +1,40 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+    <!-- 전체영역을 카드 UI로 변경하여 색상의 일관성 유지 -->
+    <v-card>
+      <v-app-bar dark color="lime">
+        <!-- 좌측에 메뉴 아이콘 생성 -->
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-toolbar-title>To-Do 리스트</v-toolbar-title>
+      </v-app-bar>
+      <v-main>
+        <v-container>
+          <v-row my-5>
+            <v-col cols="8" offset="1">
+              <!-- 실행되자 마자 입력포커스를 가지도록 autofocus 설정 -->
+              <v-text-field label="할 일" autofocus v-model="sTodoTitle">
+              </v-text-field>
+            </v-col>
+            <v-col cols="2" my-2>
+              <v-btn fab max-height="50px" max-width="50px" color="pink" dark @click="fnSubmitTodo()">
+                <v-icon>add</v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12">
+              <v-list two-line v-for="item in oTodos" :key="item.key">
+                
+              </v-list>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-main>
+    </v-card>
   </v-app>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld';
-
-export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
-};
+  export default {
+    name: 'App'
+  }
 </script>
