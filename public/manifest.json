@@ -1,0 +1,11 @@
+{
+    "name": "To-Do 리스트",
+    "shrot_name": "To-Do 리스트",
+    "icons": [
+
+    ],
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#FFFFFF"
+}
